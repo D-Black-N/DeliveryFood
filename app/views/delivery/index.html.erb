@@ -1,140 +1,181 @@
-<div class="container">
-  <header class="header">
-    <a href="index.html" class="logo animated tada logo-g">
-      <%= image_tag "img/icon/logo.svg", alt: "Delivery Logo" %>
-    </a>
-    <input type="text" class="input input-address" placeholder="Адрес доставки">
-    <div class="buttons">
-      <span class="user-name"></span>
-      <button class="button button-primary button-auth">
-        <span class="button-auth-svg"></span>
-        <span class="button-text">Войти</span>
-      </button>
-      <button class="button button-cart" id="cart-button">
-        <span class="button-cart-svg"></span>
-        <span class="button-text">Корзина</span>
-      </button>
-      <button class="button button-primary button-out">
-        <span class="button-out-svg"></span>
-        <span class="button-text">Выйти</span>
-      </button>
-    </div>
-  </header>
-</div>
-
-<main class="main">
   <div class="container">
-    <div class="swiper-container wow bounceInRight" data-wow-delay="0.1s">
-      <section class="container-promo swiper-wrapper">
-        <section class="promo slide_1 swiper-slide">
-          <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
-          <p class="promo-text">
-            Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
-          </p>
-        </section>
-        <section class="promo slide_2 swiper-slide">
-          <h1 class="promo-title">Фрикшейки на майские <br> со скидкой 35%</h1>
-          <p class="promo-text">
-            Закажите фрикшейки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD
-          </p>
-        </section>
-        <section class="promo slide_3 swiper-slide">
-          <h1 class="promo-title">Скидка 20% на всю еду <br> по промокоду LOVE.JS</h1>
-          <p class="promo-text">
-            Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду
-          </p>
-        </section>
-        <section class="promo slide_4 swiper-slide">
-          <h1 class="promo-title">Сеты со скидкой до 30% <br> в ресторанах</h1>
-          <p class="promo-text">
-            Скидки на сеты до 30 мая по промокоду SALMON
-          </p>
-        </section>
-      </section>
-      <div class="swiper-pagination"></div>
-    </div>
-    <section class="restaurants">
-      <div class="section-heading">
-        <h2 class="section-title">Рестораны</h2>
-        <input type="text" class="input-search" placeholder="Поиск блюд и ресторанов">
+    <header class="header">
+      <a href="index.html" class="logo animated tada logo-g">
+        <%= image_tag "img/icon/logo.svg", alt: "Delivery Logo" %>
+      </a>
+      <input type="text" class="input input-address" placeholder="Адрес доставки">
+      <div class="buttons">
+        <span class="user-name"></span>
+        <button class="button button-primary button-auth">
+          <span class="button-auth-svg"></span>
+          <span class="button-text">Войти</span>
+        </button>
+        <button class="button button-cart" id="cart-button">
+          <span class="button-cart-svg"></span>
+          <span class="button-text">Корзина</span>
+        </button>
+        <button class="button button-primary button-out">
+          <span class="button-out-svg"></span>
+          <span class="button-text">Выйти</span>
+        </button>
       </div>
-      <div class="cards cards-restaurants">
-      </div>
-    </section>
-    <section class="menu hide">
-      <div class="section-heading">
-        <h2 class="section-title restaurant-title">Пицца Плюс</h2>
-        <div class="card-info">
-          <div class="rating">
-            4.5
-          </div>
-          <div class="price">От 900 ₽</div>
-          <div class="category">Пицца</div>
-        </div>
-      </div>
-      <div class="cards cards-menu">
-      </div>
-    </section>
+    </header>
   </div>
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-block">
-      <%= image_tag "img/icon/logo.svg", alt: "Delivery Logo", class: "logo footer-logo" %>
-      <nav class="footer-nav">
-        <a href="#" class="footer-link">Ресторанам</a>
-        <a href="#" class="footer-link">Курьерам</a>
-        <a href="#" class="footer-link">Пресс-центр</a>
-        <a href="#" class="footer-link">Контакты</a>
-      </nav>
-      <div class="social-links">
-        <a href="#" class="social-link"><%= image_tag "img/social/instagram_logo.svg", alt: "Instagram Logo" %></a>
+  <main class="main">
+    <div class="container">
+      <div class="swiper-container wow bounceInRight" data-wow-delay="0.1s">
+        <section class="container-promo swiper-wrapper">
+          <section class="promo slide_1 swiper-slide">
+            <h1 class="promo-title">Онлайн-сервис <br />доставки еды на дом</h1>
+            <p class="promo-text">
+              Блюда из любимого ресторана привезет курьер в перчатках, маске и с антисептиком
+            </p>
+          </section>
+          <section class="promo slide_2 swiper-slide">
+            <h1 class="promo-title">Фрикшейки на майские <br> со скидкой 35%</h1>
+            <p class="promo-text">
+              Закажите фрикшейки в любом ресторане до 10 мая и получите скидку по промокоду OMAGAD
+            </p>
+          </section>
+          <section class="promo slide_3 swiper-slide">
+            <h1 class="promo-title">Скидка 20% на всю еду <br> по промокоду LOVE.JS</h1>
+            <p class="promo-text">
+              Блюдо из ресторана привезут вместе с двумя подарочными книгами по фронтенду
+            </p>
+          </section>
+          <section class="promo slide_4 swiper-slide">
+            <h1 class="promo-title">Сеты со скидкой до 30% <br> в ресторанах</h1>
+            <p class="promo-text">
+              Скидки на сеты до 30 мая по промокоду SALMON
+            </p>
+          </section>
+        </section>
+        <div class="swiper-pagination"></div>
+      </div>
+      <section class="restaurants">
+        <div class="section-heading">
+          <h2 class="section-title">Рестораны</h2>
+          <input type="text" class="input-search" placeholder="Поиск блюд и ресторанов">
+        </div>
+        <div class="cards cards-restaurants">
+        </div>
+      </section>
+      <section class="menu hide">
+        <div class="section-heading">
+          <h2 class="section-title restaurant-title">Пицца Плюс</h2>
+          <div class="card-info">
+            <div class="rating">
+              4.5
+            </div>
+            <div class="price">От 900 ₽</div>
+            <div class="category">Пицца</div>
+          </div>
+        </div>
+        <div class="cards cards-menu">
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-block">
+        <%= image_tag "img/icon/logo.svg", alt: "Delivery Logo", class: "logo footer-logo" %>
+        <nav class="footer-nav">
+          <a href="#" class="footer-link">Ресторанам</a>
+          <a href="#" class="footer-link">Курьерам</a>
+          <a href="#" class="footer-link">Пресс-центр</a>
+          <a href="#" class="footer-link">Контакты</a>
+        </nav>
+        <div class="social-links">
+          <a href="#" class="social-link"><%= image_tag "img/social/instagram_logo.svg", alt: "Instagram Logo" %></a>
         <a href="#" class="social-link"><%= image_tag "img/social/facebook_logo.svg", alt: "FaceBook Logo" %></a>
         <a href="#" class="social-link"><%= image_tag "img/social/vk_logo.svg", alt: "VK Logo" %></a>
-      </div>
-    </div>
-  </div>
-</footer>
-<div class="modal modal-cart">
-  <div class="modal-dialog">
-    <div class="modal-header">
-      <h3 class="modal-title">Корзина</h3>
-      <button class="close">&times;</button>
-    </div>
-    <div class="modal-body">
-    </div>
-    <div class="modal-footer">
-      <span class="modal-pricetag"></span>
-      <div class="footer-buttons">
-        <button class="button button-primary button-modal">Оформить заказ</button>
-        <button class="button clear-cart button-modal">Отмена</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal-auth">
-  <div class="modal-dialog modal-dialog-auth">
-    <button class="close-auth">&times;</button>
-    <form id="logInForm">
-      <fieldset class="modal-body">
-        <legend class="modal-title">Авторизация</legend>
-        <label class="label-auth">
-          <span>Логин</span>
-          <input id="login" type="text">
-        </label>
-        <label class="label-auth">
-          <span>Пароль</span>
-          <input id="password" type="password">
-        </label>
-      </fieldset>
-      <div class="modal-footer">
-        <div class="footer-buttons">
-          <button class="button button-primary button-login" type="submit">Войти</button>
         </div>
       </div>
-    </form>
+    </div>
+  </footer>
+  <div class="modal modal-cart">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Корзина</h3>
+        <button class="close">&times;</button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <span class="modal-pricetag"></span>
+        <div class="footer-buttons">
+          <button class="button button-primary button-modal">Оформить заказ</button>
+          <button class="button clear-cart button-modal">Отмена</button>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+
+<!-- форма авторизации -->
+  <div class="modal-auth">
+    <div class="modal-dialog modal-dialog-auth">
+      <button class="close-auth">&times;</button>
+      <%= form_for :session, url: login_path,  html: { id: "logInForm" } do |f| %>
+        <fieldset class="modal-body">
+          <legend class="modal-title">Авторизация</legend>
+          <label class="label-auth">
+            <span>Логин</span>
+            <%= f.text_field :login, id: "login" %>
+          </label>
+          <label class="label-auth">
+            <span>Пароль</span>
+            <%= f.password_field :password, id: "password" %>
+          </label>
+        </fieldset>
+        <div class="modal-footer">
+          <div class="footer-buttons">
+            <button class="button button-auth-reg" type="submit">Регистрация</button>
+            <button class="button button-primary button-login" type="submit">Войти</button>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- форма регистрации -->
+  <div class="modal-reg">
+    <div class="modal-dialog modal-dialog-reg">
+      <button class="close-reg">&times;</button>
+      <%= form_with model: @user, url: registration_path, method: :post, id: "RegForm" do |f| %> <!-- определить url -->
+        <fieldset class="modal-body">
+          <legend class="modal-title">Регистрация</legend>
+          <label class="label-reg">
+            <span>Имя</span>
+            <%= f.text_field :name, id: 'name' %>
+          </label>
+          <label class="label-reg">
+            <span>Почта</span>
+            <%= f.email_field :email, id: 'email' %>
+          </label>
+          <label class="label-reg">
+            <span>Пароль</span>
+            <%= f.password_field :password, id: 'password-reg' %>
+          </label>
+          <label class="label-reg">
+            <span>Повторите пароль</span>
+            <%= f.password_field :password_confirmation, id: 'retry-password-reg' %>
+          </label>
+        </fieldset>
+        <div class="modal-footer">
+          <div class="footer-buttons">
+            <%= f.submit 'Зарегистрироваться', class: "button button-primary button-reg" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+<%= javascript_pack_tag 'AJAX/sign_in' %>
+<%= javascript_pack_tag 'AJAX/reg' %>
+<%= javascript_pack_tag 'AJAX/get_partners', 'data-turbolinks-eval': 'false' %>
+<%= javascript_pack_tag 'AJAX/get_products_from_rest' %>
+
 <%= javascript_pack_tag 'disabledScroll', 'data-turbolinks-track': 'reload' %>
 <%= javascript_pack_tag 'main', 'data-turbolinks-track': 'reload' %>
+<%= javascript_pack_tag 'DaData', 'data-turbolinks-track': 'reload' %>

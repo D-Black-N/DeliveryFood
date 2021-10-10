@@ -22,6 +22,12 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt'
 
+# JQuery Rails 
+gem 'jquery-rails'
+
+# Облачное хранилище для картинок
+gem 'cloudinary'
+
 # scroll panel
 gem 'wow-rails'
 

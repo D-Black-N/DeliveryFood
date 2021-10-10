@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: deliveryfood
+  api_key: '196825389141224'
+  api_secret: qqglIYTHyHSZrirQ3Q02y0y0wQM
+  enhance_image_tag: true
+  static_file_support: false
+production:
+  cloud_name: deliveryfood
+  api_key: '196825389141224'
+  api_secret: qqglIYTHyHSZrirQ3Q02y0y0wQM
+  enhance_image_tag: true
+  static_file_support: true
+test:
+  cloud_name: deliveryfood
+  api_key: '196825389141224'
+  api_secret: qqglIYTHyHSZrirQ3Q02y0y0wQM
+  enhance_image_tag: true
+  static_file_support: false
