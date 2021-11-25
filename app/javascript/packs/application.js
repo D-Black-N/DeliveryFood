@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 //= require wow
+//= require activestorage
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -11,6 +12,7 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 require('jquery')
+require("@rails/activestorage").start()
 
 Rails.start()
 Turbolinks.start()

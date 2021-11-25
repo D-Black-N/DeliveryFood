@@ -1,15 +1,62 @@
 jQuery(function(){
-  $("a.card-restaurant").on("click", function(){
-    rest_id = $("").find("input#hidden-rest-id").val() // определить откуда искать id ресторана
+  $("a.card-restaurant").on("click", function(event){
+    event.preventDefault()
+    rest_name = $("h3.card-title").text()
     $.ajax({
       type: 'get',
       url: 'delivery/restaurant',
       dataType: 'json',
-      data: { id: rest_id },
+      data: { name: rest_name },
       success: function(products){
-        // заполнить страницу продуктами ресторана 
+        // console.log(event)
+        // openGoods(event)
+        products.forEach(element => {
+          createCardRestaurant(element)
+        });
       }
     })
   })
 })
 
+function createCardGood(goods) { // Функция создания карточки в меню ресторана
+  const { description, id, image, name, price } = goods;
+  const card = document.createElement('div');
+  card.className = 'card wow fadeInUp';
+  card.setAttribute('data-wow-delay', '0.1s');
+  card.id = id;
+  card.insertAdjacentHTML('beforeend', `
+			<img src="${image}" alt="image" class="card-image"/>
+			<div class="card-text">
+				<div class="card-heading">
+					<h3 class="card-title card-title-reg">${name}</h3>
+				</div>
+				<div class="card-info">
+					<div class="ingredients">${description}</div>
+				</div>
+				<div class="card-buttons">
+					<button class="button button-primary button-add-cart">
+					  <span class="button-card-text">В корзину</span>
+					  <span class="button-cart-svg"></span>
+				  </button>
+				  <strong class="card-price card-price-bold">${price} ₽</strong>
+			  </div>
+			</div>
+  `);
+  cardsMenu.insertAdjacentElement('beforeend',card)
+}
+
+function openGoods(event) { // Функция создания меню конкретного ресторана
+  if (localStorage.getItem(`userLogin`)) {
+      cardsMenu.textContent = ''; // Очищаем меню
+      containerPromo.classList.add('hide'); // Добавляю класс hide блоку с промо
+      restaurants.classList.add('hide'); // Добавляю класс hide блоку с ресторанами
+      menu.classList.remove('hide'); // Удаляю класс hide у блока с меню ресторана, на который кликнули
+      const {name, kitchen, price, stars} = restaurant.info; // Деструктуризация полученного объекта (получаю от объекта карточки ресторана поля для того, чтобы в меню ресторана подставить в шапку)
+      restaurantTitle.textContent = name; // Присваиваю элементам заголовка поля, принадлежащие объекту info объекта ресторана
+      restautantRating.textContent = stars;
+      restaurantPrice.textContent = `От ${price} ₽`;
+      restaurantCategory.textContent = kitchen;
+  } else {
+    toggleModalAuth();
+  }
+}

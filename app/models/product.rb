@@ -4,7 +4,9 @@ class Product < ApplicationRecord
   belongs_to :partner # каждый товар имеет ресторан (one-to-many)
 
   validates :name, presence: true # имя не должно быть пустым
-
+  
+  validates :image, presence: true # валидация наличия изображения продукта
+  
   has_one_attached :image # хранение изображений для продуктов
 
   # метод для определения url картинки товара

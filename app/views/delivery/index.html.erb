@@ -15,6 +15,7 @@
           <span class="button-text">Корзина</span>
         </button>
         <button class="button button-primary button-out">
+          <input type='hidden' name="authenticity_token" value="<%= form_authenticity_token %>" />
           <span class="button-out-svg"></span>
           <span class="button-text">Выйти</span>
         </button>
@@ -142,16 +143,16 @@
   <div class="modal-reg">
     <div class="modal-dialog modal-dialog-reg">
       <button class="close-reg">&times;</button>
-      <%= form_with model: @user, url: registration_path, method: :post, id: "RegForm" do |f| %> <!-- определить url -->
+      <%= form_with model: @user, url: user_registration_path, method: :post, id: "RegForm" do |f| %>
         <fieldset class="modal-body">
           <legend class="modal-title">Регистрация</legend>
           <label class="label-reg">
             <span>Имя</span>
-            <%= f.text_field :name, id: 'name' %>
+            <%= f.text_field :name, id: 'name-reg' %>
           </label>
           <label class="label-reg">
             <span>Почта</span>
-            <%= f.email_field :email, id: 'email' %>
+            <%= f.email_field :email, id: 'email-reg' %>
           </label>
           <label class="label-reg">
             <span>Пароль</span>
@@ -171,9 +172,52 @@
     </div>
   </div>
 
+<!-- форма данных пользователя -->
+<div class="modal-user">
+    <div class="modal-dialog modal-dialog-user">
+      <button class="close-user">&times;</button>
+      <%= form_with model: @user, url: update_user_path, method: :post, id: "UpdateForm" do |f| %> <!-- определить url -->
+        <fieldset class="modal-body">
+          <legend class="modal-title"></legend>
+          <label class="label-user">
+            <span>Имя</span>
+            <%= f.text_field :name, id: 'name-update' %>
+          </label>
+          <label class="label-user">
+            <span>Фамилия</span>
+            <%= f.text_field :surname, id: 'surname' %>
+          </label>
+          <label class="label-user">
+            <span>Номер телефона</span>
+            <%= f.text_field :phone_number, id: 'phone_number' %>
+          </label>
+          <label class="label-user">
+            <span>Пароль</span>
+            <%= f.password_field :password, id: 'password-update' %>
+          </label>
+          <label class="label-user" id='new-password'>
+            <span>Новый пароль</span>
+            <%= f.password_field :password_confirmation, id: 'password-update-conf' %>
+          </label>
+        </fieldset>
+        <div class="modal-footer">
+          <div class="footer-buttons">
+            <%= f.submit 'Обновить', class: "button button-primary button-reg" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+
 <%= javascript_pack_tag 'AJAX/sign_in' %>
+<%= javascript_pack_tag 'AJAX/sign_out' %>
+<%= javascript_pack_tag 'AJAX/user_info' %>
+<%= javascript_pack_tag 'AJAX/user_update' %>
+
 <%= javascript_pack_tag 'AJAX/reg' %>
-<%= javascript_pack_tag 'AJAX/get_partners', 'data-turbolinks-eval': 'false' %>
+<%= javascript_pack_tag 'AJAX/get_partners' %>
 <%= javascript_pack_tag 'AJAX/get_products_from_rest' %>
 
 <%= javascript_pack_tag 'disabledScroll', 'data-turbolinks-track': 'reload' %>

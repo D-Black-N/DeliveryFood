@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   # создание сессии пользователя
   def create
-    user = User.find_by(email: params[:session][:email])
+    p user = User.find_by(email: params[:session][:email])
     respond_to do |format|
       if user && user.authenticate(params[:session][:password])
         log_in user
@@ -17,6 +17,9 @@ class SessionController < ApplicationController
   # удаление сессии пользователя
   def destroy
     log_out
-    render json: "Выход выполнен успешно!"
+    respond_to do |format|
+      format.html
+      format.json { render json: "Выход выполнен успешно!"}
+    end
   end
 end

@@ -1,30 +1,40 @@
 jQuery(function(){
-  $("").on('click', function(){
-    user_name = $("").val()
-    user_surname = $("").val()
-    user_phone = $("").val()
-    user_address = $("").val()
-    old_passwd = $("").val()
-    new_passwd = $("").val()
-    new_passwd_confirm = $("").val()
-    csrfToken = $("").find('[name="authenticity_token"]').val()
+  $("#UpdateForm").submit(function(event){
+    event.preventDefault()
+    user_name = $("#name-update").val()
+    user_surname = $("#surname").val()
+    user_phone = $("#phone_number").val()
+    new_passwd = $("#password-update").val()
+    new_passwd_confirm = $("#password-update-conf").val()
+    csrfToken = $("#UpdateForm").find('[name="authenticity_token"]').val()
     $.ajax({
       type: 'post',
-      url: 'user_update',
+      url: 'update_user',
       dataType: 'json',
       headers: { 'X-CSRF-Token': csrfToken },
       data: { user: {
                       name: user_name,
                       surname: user_surname,
                       phone_number: user_phone,
-                      address: user_address,
-                      password: old_passwd
-                      // решить вопрос с новыми паролями 
+                      password: new_passwd,
+                      password_confirmation: new_passwd_confirm
                     }
       },
       success: function(update_user){
-        // выдать информацию об обновлении данных пользователя
+        toggleModalUser()
+        alert("Данные успешно обновлены!")
       }
     })    
   })
 })
+
+modalUser = document.querySelector('.modal-user');
+
+function toggleModalUser() { // функция навешивания класса is-open для отображения модального окна данных пользователя
+  modalUser.classList.toggle("is-open");
+  if (modalUser.classList.contains("is-open")){
+    disableScroll();
+  } else {
+    enableScroll();
+  }
+}

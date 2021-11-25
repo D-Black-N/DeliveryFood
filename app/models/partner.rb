@@ -5,6 +5,8 @@ class Partner < ApplicationRecord
 
   validates :price, :name, presence: true # имя не должно быть пустым
   validates :delivery_time, length: {minimum: 2, maximum:3} # минимальное время доставки должно быть двухзначным
+  validates :image, presence: true # валидация наличия изображения ресторана
+
 
   has_one_attached :image # хранение логотипов для ресторанов
 
