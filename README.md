@@ -1,6 +1,6 @@
 ## Delivery Food
 
-frontend: @Lapinyata
+frontend: @Lapinyata </br>
 backend: @D-Black-N
 
 # Описание
