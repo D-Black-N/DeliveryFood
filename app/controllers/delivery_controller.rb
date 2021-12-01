@@ -10,7 +10,7 @@ class DeliveryController < ApplicationController
   end
 
   def restaurant
-    @products_json = Partner.find_by(name: params[:name]).products # получение всех продуктов ресторана и преобразование в json
+    @products_json = Partner.find(params[:id]).products.map { |card| [card, card.get_image_url] } # получение всех продуктов ресторана и преобразование в json
     respond_to do |format| # выбор формата страницы
       format.html
       format.json { render json: @products_json }

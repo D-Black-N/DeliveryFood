@@ -217,13 +217,14 @@ function createCardRestaurant(restaurant) { // Функция для генер�
 }
 
 function createCardGood(goods) { // Функция создания карточки в меню ресторана
-  const { description, id, image, name, price } = goods;
+  const { description, id, image, name, price } = goods[0];
+  const image_url = goods[1];
   const card = document.createElement('div');
   card.className = 'card wow fadeInUp';
   card.setAttribute('data-wow-delay', '0.1s');
   card.id = id;
   card.insertAdjacentHTML('beforeend', `
-			<img src="${image}" alt="image" class="card-image"/>
+			<img src="${image_url}" alt="image" class="card-image"/>
 			<div class="card-text">
 				<div class="card-heading">
 					<h3 class="card-title card-title-reg">${name}</h3>
@@ -245,7 +246,7 @@ function createCardGood(goods) { // Функция создания карточ
 
 function openGoods(event) { // Функция создания меню конкретного ресторана
   const target = event.target; // Переменная, содержащая элемент, по которому кликнули
-  if (login) {
+  if (localStorage.getItem('userLogin')) {
     const restaurant = target.closest('.card-restaurant'); // Переменная, содержащая карточку, по элементу которой кликнули (closest осуществляет подъём по вышестоящим элементам, пока не найдёт элемент с нужным селектором)
     if (restaurant) { // Проверка, что кликнули именно по карточке (если мимо карточки, то будет NULL)
       cardsMenu.textContent = ''; // Очищаем меню
@@ -257,9 +258,9 @@ function openGoods(event) { // Функция создания меню конк
       restautantRating.textContent = stars;
       restaurantPrice.textContent = `От ${price} ₽`;
       restaurantCategory.textContent = kitchen;
-      getData(`./db/${restaurant.products}`).then(function(data) { 
-        data.forEach(createCardGood);
-      });
+      // getData(`./db/${restaurant.products}`).then(function(data) { 
+        // data.forEach(createCardGood);
+      // });
     }
   } else {
     toggleModalAuth();
@@ -391,7 +392,23 @@ function init() { // Функция инициализации
       });
     }
   });
-  cardsRestaurants.addEventListener('click', openGoods); // Событие, когда кликнули в блоке с карточками
+  cardsRestaurants.addEventListener('click', function(event){
+    openGoods(event)
+    let rest_id = event.target.parentNode.id
+    $.ajax({
+      type: 'get',
+      url: 'delivery/restaurant',
+      dataType: 'json',
+      data: { id: rest_id },
+      success: function(products){
+        console.log(products)
+        products.forEach(element => {
+          createCardGood(element)
+        });
+      }
+    })
+  }); 
+  // Событие, когда кликнули в блоке с карточками
   logo.addEventListener('click', function(){
     containerPromo.classList.remove('hide'); // Удаляю класс hide у блока с промо
     restaurants.classList.remove('hide'); // Удаляю класс hide у блока с ресторанами

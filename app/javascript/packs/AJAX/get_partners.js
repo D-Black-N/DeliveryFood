@@ -22,6 +22,7 @@ function createCardRestaurant(restaurant) { // Функция для генер�
   const cardRestaurant = document.createElement('a'); // Создаю ссылку с классами карточки и с свойством products
   cardRestaurant.className = 'card card-restaurant wow fadeInUp';
   cardRestaurant.setAttribute('data-wow-delay', '0.1s');
+  cardRestaurant.setAttribute('id', restaurant[0].id);
   cardRestaurant.products = products;
   cardRestaurant.info = {kitchen, name, price, stars}; // Добавляю объект info для динамического заголовка ресторана в меню
   // переменная, содержащая вёрстку карточки

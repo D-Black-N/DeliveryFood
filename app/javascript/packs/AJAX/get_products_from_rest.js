@@ -1,6 +1,8 @@
 jQuery(function(){
-  $("a.card-restaurant").on("click", function(event){
-    event.preventDefault()
+  
+  $(".card-restaurant").click(function(event){
+    console.log("click_to_rest")
+    openGoods(event)
     rest_name = $("h3.card-title").text()
     $.ajax({
       type: 'get',
@@ -8,15 +10,16 @@ jQuery(function(){
       dataType: 'json',
       data: { name: rest_name },
       success: function(products){
-        // console.log(event)
-        // openGoods(event)
+        console.log(products)
         products.forEach(element => {
-          createCardRestaurant(element)
+          createCardGood(element)
         });
       }
     })
   })
 })
+
+
 
 function createCardGood(goods) { // Функция создания карточки в меню ресторана
   const { description, id, image, name, price } = goods;
@@ -46,7 +49,8 @@ function createCardGood(goods) { // Функция создания карточ
 }
 
 function openGoods(event) { // Функция создания меню конкретного ресторана
-  if (localStorage.getItem(`userLogin`)) {
+  const target = event.target;
+  if (localStorage.getItem('userLogin')) {
       cardsMenu.textContent = ''; // Очищаем меню
       containerPromo.classList.add('hide'); // Добавляю класс hide блоку с промо
       restaurants.classList.add('hide'); // Добавляю класс hide блоку с ресторанами
